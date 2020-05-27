@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,7 +9,7 @@ public class Metodos {
         System.out.println(texto);
     }
 
-    // Retorna la suma de 2 números
+    // Retorna la suma entre 2 números
     public int sumar(int a, int b){
         return a+b;
     }
@@ -28,20 +29,59 @@ public class Metodos {
         return a+b;
     }
 
+    // Retorna el resto entre 2 números
+    public int resto(int a, int b){
+        return a%b;
+    }
+
     // Retorna el primer número elevado al segundo
     public double potencia(double a, double b){
         return Math.pow(a, b);
     }
 
     // Retorna la raíz cuadrada del número
+    public double raizCuadrada(double a){
+        return Math.sqrt(a);
+    }
 
+    // Revisa si un número es par
+    public boolean esPar(int a){
+        return a%2==0;
+    }
 
     // Retorna un número al azar entre el rango ingresado
     public int randomEntre(int min, int max){
         return min + (int)(Math.random() * ((max-min)+1));
     }
 
-    // Se encarga de validar el rut ingresado
+    // Retorna una palabra en mayúsculas
+    public String mayusculas(String palabra){
+        if(palabra==null){
+            return palabra;
+        }
+
+        return palabra.toUpperCase();
+    }
+
+    // Retorna una palabra en minúsculas
+    public String minusculas(String palabra){
+        if(palabra==null){
+            return palabra;
+        }
+
+        return palabra.toLowerCase();
+    }
+
+    // Retorna una palabra con la primera letra en mayúsculas
+    public String upperCaseFirstChar(String palabra) {
+        if(palabra==null){
+            return palabra;
+        }
+
+        return palabra.toUpperCase().charAt(0) + palabra.substring(1).toLowerCase();
+    }
+
+    // Valida el rut ingresado
     public boolean validarRut(String rut) {
 
         boolean validacion = false;
