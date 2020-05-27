@@ -59,6 +59,27 @@ public class Metodos {
         return min + (int)(Math.random() * ((max-min)+1));
     }
 
+    // Valida entrada de tipo int
+    private int validarInt() {
+        Scanner teclado = new Scanner(System.in);
+        boolean repetir = true; // Boolean para repetir en caso de ingresar una letra o símbolo
+        int a = 0; // Variable con la que se trabaja
+
+        while (repetir) {
+            try {
+                System.out.print("Ingrese la opción: ");
+                a = teclado.nextInt();
+                repetir = false;
+            } catch (Exception e) {
+                teclado.next();
+                System.out.println("Error: "+e.getMessage()+". Ingrese un número, por favor");
+                repetir = true;
+            }
+        }
+
+        return a;
+    }
+
     // Retorna una palabra en mayúsculas
     public String mayusculas(String palabra){
         if(palabra==null){
@@ -84,6 +105,15 @@ public class Metodos {
         }
 
         return palabra.toUpperCase().charAt(0) + palabra.substring(1).toLowerCase();
+    }
+
+    // Muestra un menú con opciones de un arreglo de String
+    public void opciones(String[] lista){
+        if(lista!=null){
+            for (int i = 1; i <= lista.length; i++) {
+                System.out.println(i + ".- " + lista[i - 1]);
+            }
+        }
     }
 
     // Valida el rut ingresado
