@@ -44,6 +44,11 @@ public class Metodos {
         return Math.sqrt(a);
     }
 
+    // Revisa si un número es mayor a otro número
+    public boolean esMayor(int a, int b){
+        return a>b;
+    }
+
     // Revisa si un número es par
     public boolean esPar(int a){
         return a%2==0;
@@ -72,8 +77,8 @@ public class Metodos {
         return palabra.toLowerCase();
     }
 
-    // Retorna una palabra con la primera letra en mayúsculas
-    public String upperCaseFirstChar(String palabra) {
+    // Retorna una palabra con la primera letra en mayúsculas y el resto en minúsculas
+    public String mayusculaInicial(String palabra) {
         if(palabra==null){
             return palabra;
         }
