@@ -80,6 +80,24 @@ public class Metodos {
         return a;
     }
 
+    // Muestra un menú con opciones de un arreglo de String
+    public void opciones(String[] lista){
+        if(lista!=null){
+            for (int i = 1; i <= lista.length; i++) {
+                System.out.println(i + ".- " + lista[i - 1]);
+            }
+        }
+    }
+
+    // Remueve los espacios un String
+    public String sinEspacios(String palabra){
+        if(palabra==null){
+            return palabra;
+        }
+
+        return palabra.replace(" ","");
+    }
+
     // Retorna una palabra en mayúsculas
     public String mayusculas(String palabra){
         if(palabra==null){
@@ -107,13 +125,19 @@ public class Metodos {
         return palabra.toUpperCase().charAt(0) + palabra.substring(1).toLowerCase();
     }
 
-    // Muestra un menú con opciones de un arreglo de String
-    public void opciones(String[] lista){
-        if(lista!=null){
-            for (int i = 1; i <= lista.length; i++) {
-                System.out.println(i + ".- " + lista[i - 1]);
-            }
+    // Remueve los tildes de un String
+    public String removerTildes(String palabra){
+        if(palabra==null){
+            return palabra;
         }
+
+        String conTildes="ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ";
+        String sinTildes="AAAAAAACEEEEIIIIDNOOOOOOUUUUYBaaaaaaaceeeeiiiionoooooouuuuyy";
+        for(int i=0; i<conTildes.length(); i++){
+            palabra = palabra.replace(conTildes.charAt(i), sinTildes.charAt(i));
+        }
+
+        return palabra;
     }
 
     // Valida el rut ingresado
