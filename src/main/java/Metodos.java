@@ -181,6 +181,16 @@ public class Metodos {
         return palabra;
     }
 
+    // Remueve un caracter de un String
+    public String removerCaracter(String palabra, char caracter){
+        if(palabra==null){
+            return palabra;
+        }
+
+        String aux = ""+caracter;
+        return palabra.replace(aux, "");
+    }
+
     // Valida el rut ingresado
     public boolean validarRut(String rut) {
 
