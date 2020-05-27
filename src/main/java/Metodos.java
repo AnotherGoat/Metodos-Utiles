@@ -54,21 +54,36 @@ public class Metodos {
         return a%2==0;
     }
 
-    // Retorna un número al azar entre el rango ingresado
-    public int randomEntre(int min, int max){
-        return min + (int)(Math.random() * ((max-min)+1));
-    }
-
     // Valida entrada de tipo int
-    private int validarInt() {
+    public int validarInt() {
         Scanner teclado = new Scanner(System.in);
         boolean repetir = true; // Boolean para repetir en caso de ingresar una letra o símbolo
-        int a = 0; // Variable con la que se trabaja
+        int a=0; // Variable con la que se trabaja
 
         while (repetir) {
             try {
-                System.out.print("Ingrese la opción: ");
+                System.out.print("Ingrese un número: ");
                 a = teclado.nextInt();
+                repetir = false;
+            } catch (Exception e) {
+                teclado.next(); // Vacía el Scanner
+                System.out.println("Error: "+e.getMessage()+". Ingrese un número, por favor");
+                repetir = true;
+            }
+        }
+        return a;
+    }
+
+    // Valida entrada de tipo double
+    public double validarDouble() {
+        Scanner teclado = new Scanner(System.in);
+        boolean repetir = true; // Boolean para repetir en caso de ingresar una letra o símbolo
+        double a=0;
+
+        while (repetir) {
+            try {
+                System.out.print("Ingrese un número: ");
+                a = teclado.nextDouble();
                 repetir = false;
             } catch (Exception e) {
                 teclado.next();
@@ -76,8 +91,34 @@ public class Metodos {
                 repetir = true;
             }
         }
-
         return a;
+    }
+
+    // Retorna un número al azar entre el rango ingresado
+    public int randomEntre(int min, int max){
+        return min + (int)(Math.random() * ((max-min)+1));
+    }
+
+    // Muestra los elementos dentro de un arreglo de tipo int[]
+    public void mostrarArreglo(int[] arreglo){
+        if(arreglo!=null){
+            for (int t : arreglo) {
+                System.out.print(t + " ");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    // Muestra los elementos de una matriz (rectangular) de tipo int[][]
+    public void mostrarMatriz(int[][] matriz){
+        if(matriz!=null){
+            for (int[] t : matriz) {
+                for (int u : t) {
+                    System.out.print(u + " ");
+                }
+                System.out.print("\n");
+            }
+        }
     }
 
     // Muestra un menú con opciones de un arreglo de String
