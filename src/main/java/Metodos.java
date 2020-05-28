@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,11 +97,12 @@ public class Metodos {
 
     // Retorna un número al azar entre el rango ingresado
     public int randomEntre(int min, int max){
-        return min + (int)(Math.random() * ((max-min)+1));
+        Random num = new Random();
+        return min + num.nextInt(max-min);
     }
 
     // Muestra los elementos dentro de un arreglo de tipo int[]
-    public void mostrarArreglo(int[] arreglo){
+    public void verArreglo(int[] arreglo){
         if(arreglo!=null){
             for (int t : arreglo) {
                 System.out.print(t + " ");
@@ -109,8 +111,19 @@ public class Metodos {
         }
     }
 
+    // Llena un arreglo con números al azar
+    public int[] llenarArreglo(int[] arreglo, int min, int max){
+        if(arreglo!=null) {
+            Random num = new Random();
+            for (int i = 0; i < arreglo.length; i++) {
+                arreglo[i] = min + num.nextInt(max-min);
+            }
+        }
+        return arreglo;
+    }
+
     // Muestra los elementos de una matriz (rectangular) de tipo int[][]
-    public void mostrarMatriz(int[][] matriz){
+    public void verMatriz(int[][] matriz){
         if(matriz!=null){
             for (int[] t : matriz) {
                 for (int u : t) {
