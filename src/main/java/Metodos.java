@@ -92,6 +92,7 @@ public class Metodos {
                 repetir = true;
             }
         }
+
         return a;
     }
 
@@ -102,15 +103,29 @@ public class Metodos {
     }
 
     // Calcula el promedio de un arreglo de int
-    public double promediar(int[] arr){
+    public double promedio(int[] arr){
         double promedio = 0;
+
         if(arr!=null){
             for(int t : arr){
                 promedio+=t;
             }
-            promedio /= arr.length;
+            promedio/=arr.length;
         }
         return promedio;
+    }
+
+    // Calcula la desviación estandar de un arreglo de int
+    public double desviacionEstandar(int[] arr){
+        double promedio = promedio(arr), desviacion = 0;
+
+        if(arr!=null){
+            for(int t: arr){
+                desviacion+=Math.pow((t-promedio), 2);
+            }
+            desviacion/=arr.length;
+        }
+        return desviacion;
     }
 
     // Muestra los elementos dentro de un arreglo de tipo int[]
@@ -185,7 +200,7 @@ public class Metodos {
     }
 
     // Remueve los espacios un String
-    public String sinEspacios(String palabra){
+    public String removerEspacios(String palabra){
         if(palabra==null){
             return palabra;
         }
@@ -233,6 +248,33 @@ public class Metodos {
         }
 
         return palabra;
+    }
+
+    // Verifica si la palabra ingresada es un palindromo
+    public boolean esPalindromo(String palabra){
+        if(palabra==null) {
+            return false;
+        }
+
+        palabra = removerEspacios(palabra);
+        palabra = minusculas(palabra);
+        palabra = removerTildes(palabra);
+
+        if(palabra.equals("")){ // Caso de String vacío
+            return false;
+        }
+        else if(palabra.length()==1){ // En caso de ingresar solo 1 letra o símbolo
+            return false;
+        }
+        else {
+            String palabraAux = "";
+
+            for (int i = palabra.length()-1; i>=0; i--) {
+                char caracter = palabra.charAt(i);
+                palabraAux += caracter;
+            }
+            return palabra.equals(palabraAux);
+        }
     }
 
     // Remueve un caracter de un String
