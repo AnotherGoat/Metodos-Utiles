@@ -101,6 +101,18 @@ public class Metodos {
         return min + num.nextInt(max-min);
     }
 
+    // Calcula el promedio de un arreglo de int
+    public double promediar(int[] arr){
+        double promedio = 0;
+        if(arr!=null){
+            for(int t : arr){
+                promedio+=t;
+            }
+            promedio /= arr.length;
+        }
+        return promedio;
+    }
+
     // Muestra los elementos dentro de un arreglo de tipo int[]
     public void verArreglo(int[] arr){
         if(arr!=null){
