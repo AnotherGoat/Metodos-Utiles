@@ -263,17 +263,18 @@ public class Metodos {
         if(palabra.equals("")){ // Caso de String vacío
             return false;
         }
-        else if(palabra.length()==1){ // En caso de ingresar solo 1 letra o símbolo
+        else if(palabra.length()==1){ // En caso de ingresar solo 1 caracter
             return false;
         }
         else {
-            String palabraAux = "";
+            StringBuilder sb = new StringBuilder();
 
             for (int i = palabra.length()-1; i>=0; i--) {
                 char caracter = palabra.charAt(i);
-                palabraAux += caracter;
+                sb.append(caracter);
             }
-            return palabra.equals(palabraAux);
+
+            return palabra.equals(sb.toString());
         }
     }
 
