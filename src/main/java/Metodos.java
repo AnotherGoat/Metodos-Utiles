@@ -102,9 +102,9 @@ public class Metodos {
     }
 
     // Muestra los elementos dentro de un arreglo de tipo int[]
-    public void verArreglo(int[] arreglo){
-        if(arreglo!=null){
-            for (int t : arreglo) {
+    public void verArreglo(int[] arr){
+        if(arr!=null){
+            for (int t : arr) {
                 System.out.print(t + " ");
             }
             System.out.print("\n");
@@ -112,26 +112,55 @@ public class Metodos {
     }
 
     // Llena un arreglo con números al azar
-    public int[] llenarArreglo(int[] arreglo, int min, int max){
-        if(arreglo!=null) {
+    public int[] llenarArreglo(int[] arr, int min, int max){
+        if(arr!=null) {
             Random num = new Random();
-            for (int i = 0; i < arreglo.length; i++) {
-                arreglo[i] = min + num.nextInt(max-min);
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = min + num.nextInt(max-min);
             }
         }
-        return arreglo;
+        return arr;
     }
 
-    // Muestra los elementos de una matriz (rectangular) de tipo int[][]
-    public void verMatriz(int[][] matriz){
-        if(matriz!=null){
-            for (int[] t : matriz) {
+    // Ordena un arreglo usando el método de burbuja
+    static int[] ordenarArreglo(int[] arr){
+        if(arr!=null) {
+            for (int i = 0; i < arr.length - 1; i++) {
+                for (int j = 0; j < arr.length - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        int aux = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = aux;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+
+    // Muestra los elementos de una matriz de tipo int[][]
+    public void verMatriz(int[][] mat){
+        if(mat!=null){
+            for (int[] t : mat) {
                 for (int u : t) {
                     System.out.print(u + " ");
                 }
                 System.out.print("\n");
             }
         }
+    }
+
+    // Llena una matriz con números al azar
+    public int[][] llenarMatriz(int[][] mat, int min, int max){
+        if(mat!=null) {
+            Random num = new Random();
+            for (int i=0; i < mat.length; i++) {
+                for (int j=0; j < mat[i].length; j++) {
+                    mat[i][j] = min + num.nextInt(max - min);
+                }
+            }
+        }
+        return mat;
     }
 
     // Muestra un menú con opciones de un arreglo de String
